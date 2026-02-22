@@ -1,0 +1,12 @@
+.publicWrap {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .profileCard {
+    background: #0b1220;
+    border-radius: 16px;
+    padding: 20px;
+    color: white;
+  }

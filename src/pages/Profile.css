@@ -1,0 +1,345 @@
+.profileWrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.profileCard{
+  border-radius: 26px;
+  background: linear-gradient(180deg, #0f1224, #0b1020);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 22px 70px rgba(0,0,0,0.18);
+  color: #fff;
+  padding: 16px;
+}
+
+.profileTop{
+  display:flex;
+  gap: 16px;
+  align-items:flex-start;
+}
+
+.avatarBig{
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  overflow: hidden;
+  display:grid;
+  place-items:center;
+  flex: 0 0 auto;
+}
+
+.avatarBig img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarBig span{
+  font-size: 32px;
+  font-weight: 950;
+}
+
+.profileInfo{
+  flex: 1;
+  min-width: 0;
+}
+
+.nameRow{
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pName{
+  font-size: 22px;
+  font-weight: 950;
+  letter-spacing: -0.2px;
+}
+
+.pHandle{
+  margin-top: 2px;
+  font-size: 13px;
+  opacity: .75;
+}
+
+.pBio{
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.35;
+  opacity: .95;
+}
+
+.pBio.dim{
+  opacity: .6;
+}
+
+.statsRow{
+  margin-top: 12px;
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat{
+  min-width: 120px;
+  padding: 10px 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.stat .k{
+  font-size: 12px;
+  opacity: .75;
+}
+
+.stat .v{
+  margin-top: 2px;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+/* Buttons (fallback if not global) */
+.btnPrimary{
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(130,110,255,0.25);
+  background: linear-gradient(180deg, rgba(130,110,255,1), rgba(99,102,241,1));
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btnGhost{
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* Grid */
+.gridHead{
+  margin-top: 16px;
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.gridTitle{
+  font-weight: 950;
+  font-size: 18px;
+}
+
+.gridSub{
+  font-size: 12px;
+  opacity: .65;
+}
+
+.postGrid{
+  margin-top: 10px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.gridItem{
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.thumb{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid rgba(15,23,42,0.10);
+  background: #fff;
+}
+
+.thumbPdf, .thumbText{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  border: 1px solid rgba(15,23,42,0.10);
+  background: #ffffff;
+  padding: 12px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pdfBadge, .tBadge{
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,0.12);
+  font-weight: 950;
+  font-size: 12px;
+}
+
+.pdfName{
+  font-weight: 900;
+  font-size: 13px;
+  opacity: .85;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tPreview{
+  font-size: 13px;
+  opacity: .9;
+  overflow: hidden;
+  display: -webkit-box;
+ 
+  -webkit-box-orient: vertical;
+}
+
+.gridMeta{
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: .75;
+  display:flex;
+  gap: 6px;
+  align-items:center;
+}
+
+.dot{ opacity: .55; }
+
+.emptyGrid{
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(15,23,42,0.10);
+}
+
+/* Modal preview */
+.pModalOverlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 18px;
+}
+
+.pModal{
+  width: min(820px, 96vw);
+  max-height: 86vh;
+  overflow: auto;
+  border-radius: 22px;
+  background: #0f1224;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 14px;
+  position: relative;
+}
+
+.pClose{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.pModalHead{
+  padding-right: 42px;
+}
+
+.pModalTitle{
+  font-weight: 950;
+  font-size: 16px;
+}
+
+.pModalSub{
+  font-size: 12px;
+  opacity: .7;
+  margin-top: 2px;
+}
+
+.pMedia{
+  margin-top: 12px;
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.pMedia img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pPdf{
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.pdfBadge.big{
+  margin-bottom: 8px;
+}
+
+.pdfOpenLink{
+  display:inline-block;
+  margin-top: 10px;
+  color: #c7d2fe;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.pdfOpenLink:hover{ text-decoration: underline; }
+
+.pText{
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.pCaption{
+  margin-top: 10px;
+  opacity: .9;
+}
+
+.dim{ opacity: .65; }
+
+@media (max-width: 720px){
+  .profileTop{ flex-direction: column; }
+  .nameRow{ align-items: center; }
+  .postGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px){
+  .postGrid{ grid-template-columns: 1fr; }
+}
+.profileInfo.clickable{
+  cursor: pointer;
+}
+
+.profileInfo.clickable:hover{
+  filter: brightness(1.05);
+}

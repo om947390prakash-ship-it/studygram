@@ -1,0 +1,4 @@
+#root{ min-height: 100vh; background: var(--bg); }
+
+a{ color: inherit; }
+button{ font-family: inherit; }

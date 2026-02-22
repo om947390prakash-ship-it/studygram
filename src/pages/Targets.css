@@ -1,0 +1,358 @@
+/* ===== Targets Page (Premium Fix) ===== */
+.targetsWrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+/* Header */
+.targetsHead{
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.targetsHead h1{
+  margin: 0 0 6px;
+  font-size: 36px;
+  letter-spacing: -0.5px;
+}
+
+.targetsHead p{
+  margin: 0;
+  color: #64748b;
+}
+
+/* Timer */
+.timerCard{
+  min-width: 320px;
+  padding: 16px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #0b1220, #070b14);
+  color: #fff;
+  box-shadow: 0 18px 55px rgba(15,23,42,0.18);
+}
+
+.timerTime{
+  font-size: 44px;
+  font-weight: 950;
+  letter-spacing: 2px;
+}
+
+.timerBtns{
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Subject Pills Row */
+.subRow{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;          /* ✅ fix vertical stacking */
+  align-items: center;
+  margin: 8px 0 14px;
+}
+
+.subPill{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,0.10);
+  background: #0b1220;
+  color: #fff;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.subPill:hover{
+  transform: translateY(-1px);
+  background: #101a2e;
+}
+
+.subPill.active{
+  border-color: rgba(124,58,237,0.45);
+  box-shadow: 0 0 0 2px rgba(124,58,237,0.14) inset;
+}
+
+.subX{
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  font-weight: 900;
+}
+
+/* Add Subject Row */
+.addSubjectRow{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Main input */
+.input{
+  flex: 1;                  /* ✅ input full width */
+  min-width: 240px;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(15,23,42,0.10);
+  background: #ffffff;
+  outline: none;
+  font-weight: 700;
+
+  /* ✅ FIX: text visible */
+  color: #0f172a;
+  caret-color: #0f172a;
+}
+
+.input:focus{
+  border-color: rgba(124,58,237,0.35);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+}
+
+/* placeholder */
+.input::placeholder{
+  color: #94a3b8;
+}
+
+.btnDark{
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: #0b1220;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* Big Card */
+.bigCard{
+  padding: 18px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(15,23,42,0.08);
+  box-shadow: 0 16px 44px rgba(15,23,42,0.06);
+  margin-bottom: 14px;
+}
+
+.bigTop{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.bigTop h2{
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.3px;
+}
+
+/* Add Target Row */
+.addTargetRow{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0 14px;
+}
+
+/* Progress */
+.progressRow{
+  margin-top: 8px;
+}
+
+.progressBar{
+  height: 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  overflow: hidden;
+  border: 1px solid rgba(15,23,42,0.06);
+}
+
+.progressFill{
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(124,58,237,1), rgba(99,102,241,1));
+}
+
+.progressText{
+  margin-top: 10px;
+  font-weight: 900;
+  color: #334155;
+}
+
+/* Targets List */
+.targetsList{
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+/* Row */
+.tRow{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(15,23,42,0.08);
+  background: #fff;
+
+  /* layout */
+  justify-content: space-between;
+}
+
+.tRow.done{
+  background: rgba(124,58,237,0.06);
+  border-color: rgba(124,58,237,0.18);
+}
+
+.tRow input{
+  width: 18px;
+  height: 18px;
+}
+
+.tLeft{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tText{
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Edit input */
+.tEditInput{
+  flex: 1;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(15,23,42,0.12);
+  padding: 0 12px;
+  outline: none;
+
+  /* ✅ FIX: text visible */
+  background: #fff;
+  color: #0f172a;
+  caret-color: #0f172a;
+}
+
+.tEditInput::placeholder{
+  color: #94a3b8;
+}
+
+.tEditInput:focus{
+  border-color: rgba(124,58,237,0.35);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+}
+
+.tActions{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.emptyText{
+  margin-top: 10px;
+  color: #64748b;
+}
+
+/* Buttons (use your existing if already) */
+.btnPrimary{
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(124,58,237,0.18);
+  background: linear-gradient(180deg, rgba(124,58,237,1), rgba(99,102,241,1));
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.btnGhost{
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.miniBtn{
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.miniBtn:disabled{
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.miniBtn.primary{
+  border-color: rgba(124,58,237,0.20);
+  background: rgba(124,58,237,0.10);
+  color: #5b21b6;
+}
+
+.miniBtn.danger{
+  border-color: rgba(220,38,38,0.20);
+  background: rgba(220,38,38,0.06);
+  color: #991b1b;
+}
+
+/* Responsive */
+@media (max-width: 860px){
+  .targetsHead{
+    flex-direction: column;
+  }
+  .timerCard{
+    width: 100%;
+    min-width: 0;
+  }
+  .addSubjectRow, .addTargetRow{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btnDark{
+    width: 100%;
+  }
+}
+/* ===== FORCE FIX FOR TARGETS PAGE ===== */
+
+.targetsWrap .input,
+.targetsWrap .tEditInput {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  caret-color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+.targetsWrap .input::placeholder,
+.targetsWrap .tEditInput::placeholder {
+  color: #94a3b8 !important;
+}

@@ -1,0 +1,114 @@
+.focusWrap{
+    padding: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .focusTop{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  
+  .focusTop h2{ margin:0; }
+  .focusTop p{ margin:6px 0 0; opacity:.75; }
+  
+  .statsMini{
+    display:flex;
+    gap:10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  
+  .chip{
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    min-width: 90px;
+  }
+  .chip .k{ font-size: 11px; opacity:.7; }
+  .chip .v{ font-weight: 900; margin-top: 2px; }
+  
+  .focusCard{
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  
+  .controlsRow{
+    display:grid;
+    grid-template-columns: 160px 1fr;
+    gap: 10px;
+  }
+  
+  .field .label{
+    font-size: 12px;
+    opacity: .75;
+    margin-bottom: 6px;
+  }
+  
+  .field input, .field select{
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.06);
+    color: inherit;
+    outline: none;
+  }
+  
+  .timerBox{
+    display:grid;
+    place-items: center;
+    padding: 18px 0 10px;
+  }
+  
+  .ring{
+    --p: 0%;
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+    display:grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at center, rgba(10,12,24,1) 58%, transparent 59%),
+      conic-gradient(from 90deg, rgba(130,110,255,.95) var(--p), rgba(255,255,255,0.10) 0);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  
+  .time{
+    font-size: 40px;
+    font-weight: 1000;
+    letter-spacing: 1px;
+  }
+  
+  .sub{
+    margin-top: 6px;
+    font-size: 12px;
+    opacity: .75;
+    text-align: center;
+  }
+  
+  .btnRow{
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .hintLine{
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: .7;
+    text-align: center;
+  }
+  
+  @media (max-width: 520px){
+    .controlsRow{ grid-template-columns: 1fr; }
+    .ring{ width: 200px; height: 200px; }
+  }

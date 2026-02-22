@@ -1,0 +1,152 @@
+.saathiWrap{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.saathiHead h1{ margin:0; font-size:28px; color:#0f172a; }
+.saathiHead p{ margin:6px 0 0; color:#64748b; font-weight:700; }
+
+.saathiCard{
+  background:#fff;
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow: 0 14px 40px rgba(0,0,0,.06);
+  border-radius:18px;
+  padding:16px;
+}
+
+.row{ display:flex; gap:10px; flex-wrap:wrap; }
+.in{
+  flex:1;
+  min-width: 220px;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:12px 12px;
+  outline:none;
+  font-weight:700;
+}
+
+.btnP{
+  border:none;
+  border-radius:12px;
+  padding:12px 14px;
+  background: linear-gradient(135deg,#5b5af7,#7c3aed);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+.btnP:disabled{ opacity:.6; cursor:not-allowed; }
+
+.btnG{
+  border:1px solid rgba(15,23,42,.12);
+  border-radius:12px;
+  padding:10px 12px;
+  background:#f8fafc;
+  color:#0f172a;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.btnD{
+  border:1px solid rgba(15,23,42,.12);
+  border-radius:12px;
+  padding:10px 12px;
+  background:#eef2ff;
+  color:#3730a3;
+  font-weight:900;
+  cursor:not-allowed;
+}
+
+.err{ margin-top:10px; color:#b91c1c; font-weight:800; }
+.hint{ margin-top:10px; color:#64748b; font-weight:700; font-size:13px; }
+
+.results{ margin-top:12px; display:flex; flex-direction:column; gap:10px; }
+.uRow{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(15,23,42,.08);
+  background:#fff;
+}
+.uLeft{ display:flex; gap:10px; align-items:center; }
+.ava{
+  width:44px;height:44px;border-radius:14px;
+  display:grid;place-items:center;
+  background: linear-gradient(135deg,#111827,#4f46e5);
+  color:#fff;font-weight:900;
+}
+.uName{ font-weight:900; color:#0f172a; }
+.uHandle{ color:#64748b; font-weight:800; font-size:12px; }
+.uBtns{ display:flex; gap:8px; flex-wrap:wrap; }
+
+.cardTop{ display:flex; justify-content:space-between; align-items:center; }
+.cardTop h2{ margin:0; font-size:18px; color:#0f172a; }
+.mini{ color:#64748b; font-weight:800; font-size:12px; }
+
+.saathiEmpty{
+  margin-top:12px;
+  padding:14px;
+  border-radius:14px;
+  border:1px dashed rgba(15,23,42,.14);
+  background:#fff;
+  color:#64748b;
+  font-weight:800;
+}
+
+.grid{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:12px;
+}
+.miniCard{
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:16px;
+  padding:12px;
+  background:#fff;
+}
+.miniTop{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  cursor:pointer;
+}
+.ava2{
+  width:46px;height:46px;border-radius:16px;
+  display:grid;place-items:center;
+  background: linear-gradient(135deg,#0b1220,#7c3aed);
+  color:#fff;font-weight:900;
+}
+.scoreRow{
+  margin:10px 0 12px;
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  border-radius:12px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+}
+.scoreRow .k{ color:#64748b; font-weight:900; }
+.scoreRow .v{ color:#0f172a; font-weight:900; }
+
+.lb{ margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+.lbRow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(15,23,42,.08);
+}
+.rank{
+  width:34px;height:34px;border-radius:12px;
+  display:grid;place-items:center;
+  background:#0b1220;color:#fff;font-weight:900;
+}
+.lbMid{ flex:1; cursor:pointer; }
+.lbName{ font-weight:900; color:#0f172a; }
+.lbHandle{ color:#64748b; font-weight:800; font-size:12px; }
+.lbScore{ font-weight:900; color:#0f172a; }

@@ -1,0 +1,37 @@
+.studyHeader{
+  display:flex; justify-content:space-between; gap:16px;
+  align-items:flex-start; flex-wrap:wrap;
+}
+.studyHeader h2{ margin:0; font-size: 28px; }
+.studyHeader p{ margin:8px 0 0; color: var(--muted); }
+
+.studyPills{ display:flex; gap:8px; }
+.pill{
+  background: rgba(91,92,226,.12);
+  color: #2f2fcf;
+  border: 1px solid rgba(91,92,226,.18);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.studyCards{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--soft);
+  border: 1px solid rgba(15,23,42,.06);
+}
+.card h3{ margin:0; }
+.card p{ margin:10px 0 14px; color: var(--muted); }
+
+@media (max-width: 900px){
+  .studyCards{ grid-template-columns: 1fr; }
+}

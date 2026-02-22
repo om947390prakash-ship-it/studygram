@@ -1,0 +1,133 @@
+.driveOverlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 18px;                 /* ✅ mobile safe */
+}
+
+.driveSheet{
+  width: min(620px, 94vw);
+  max-height: min(78vh, 720px);  /* ✅ content cut na ho */
+  overflow: auto;                /* ✅ scroll inside modal */
+  border-radius: 18px;
+  background: #0f1224;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 14px;
+  box-shadow: 0 22px 70px rgba(0,0,0,0.35);
+}
+
+/* optional: nice scroll */
+.driveSheet::-webkit-scrollbar{ width: 10px; }
+.driveSheet::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+}
+
+.driveHead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.driveTitle{ font-weight: 900; font-size: 16px; color:#fff; }
+.driveSub{ font-size: 12px; opacity: .75; margin-top: 2px; color:#fff; }
+
+.xBtn{
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.xBtn:hover{
+  background: rgba(255,255,255,0.06);
+}
+
+.driveSection{ margin-top: 14px; }
+.label{ font-size: 12px; opacity: .7; margin-bottom: 8px; color:#fff; }
+
+/* ✅ Folder row: wrap + fallback horizontal scroll for small screens */
+.folderRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  overflow-x: auto;              /* ✅ if too many */
+  padding-bottom: 4px;
+}
+
+.folderRow::-webkit-scrollbar{ height: 8px; }
+.folderRow::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+}
+
+.folderPill{
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  color: #fff;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.folderPill:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.folderPill.active{
+  outline: 2px solid rgba(130,110,255,.9);
+  background: rgba(130,110,255,.15);
+  border-color: rgba(130,110,255,.35);
+}
+
+/* new folder row */
+.row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.input{
+  flex:1;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  outline: none;
+}
+
+.input::placeholder{
+  color: rgba(255,255,255,0.45);
+}
+
+.input:focus{
+  border-color: rgba(130,110,255,.55);
+  box-shadow: 0 0 0 3px rgba(130,110,255,.18);
+}
+
+/* Save button */
+.full{
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* ✅ Mobile: row stack */
+@media (max-width: 520px){
+  .row{ flex-direction: column; align-items: stretch; }
+  .driveSheet{ padding: 12px; }
+}

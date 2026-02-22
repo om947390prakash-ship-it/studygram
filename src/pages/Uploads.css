@@ -1,0 +1,532 @@
+/* =========================
+   Uploads Page Layout
+========================= */
+.uploadPage{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding-bottom: 18px;
+}
+
+/* =========================
+   HERO (Top Profile + Stats)
+========================= */
+.uploadHero{
+  background: linear-gradient(90deg, #0b1020 0%, #0b0f18 70%, #0b0f18 100%);
+  color:#fff;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 20px 55px rgba(0,0,0,.22);
+  display:flex;
+  justify-content:space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.uploadHero .heroLeft{
+  display:flex;
+  gap: 14px;
+  align-items:center;
+}
+
+.uploadHero .heroAvatar{
+  width: 70px;
+  height: 70px;
+  border-radius: 22px;
+  display:grid;
+  place-items:center;
+  background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.95), rgba(91,92,226,.65));
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.uploadHero .heroName{
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.uploadHero .heroHandle{
+  opacity: .85;
+  font-weight: 800;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.uploadHero .heroLine{
+  margin-top: 8px;
+  opacity: .9;
+  font-weight: 700;
+  max-width: 520px;
+}
+
+.uploadHero .heroBadges{
+  display:flex;
+  gap: 10px;
+  align-items:stretch;
+  flex-wrap:wrap;
+}
+
+.uploadHero .badge{
+  min-width: 110px;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  text-align:center;
+}
+
+.uploadHero .badge .k{
+  opacity: .85;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.uploadHero .badge .v{
+  font-weight: 900;
+  font-size: 22px;
+  margin-top: 6px;
+}
+
+/* =========================
+   UPLOAD COMPOSER CARD
+========================= */
+.uploadCard{
+  background:#ffffff;
+  border-radius:18px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.08);
+  padding:18px;
+}
+
+.uploadHeader h2{
+  margin:0;
+  font-size:22px;
+  color:#0f172a;
+}
+
+.uploadHeader p{
+  margin:6px 0 0;
+  color:#64748b;
+  font-weight:500;
+}
+
+.tabsRow{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+  flex-wrap: wrap;
+}
+
+.tab{
+  border:1px solid #e2e8f0;
+  background:#f8fafc;
+  color:#0f172a;
+  font-weight:800;
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+.tab.active{
+  background:#0b1220;
+  color:#fff;
+  border-color:#0b1220;
+}
+
+.composer{
+  margin-top:14px;
+  border:1px solid #e2e8f0;
+  background:#fbfbfd;
+  border-radius:16px;
+  padding:14px;
+}
+
+.fileRow{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:10px;
+}
+
+.fileInput{
+  padding:10px;
+  border-radius:12px;
+  border:1px dashed #cbd5e1;
+  background:#fff;
+}
+
+.hint{
+  color:#64748b;
+  font-size:13px;
+  font-weight:700;
+}
+
+.textArea{
+  width:100%;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:12px;
+  outline:none;
+  resize:vertical;
+  font-size:14px;
+}
+
+.captionInput{
+  width:100%;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:12px;
+  outline:none;
+  margin-top:10px;
+  font-size:14px;
+}
+
+.composerActions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:12px;
+}
+
+.primaryBtn{
+  background: linear-gradient(135deg,#5b5af7,#7c3aed);
+  color:#fff;
+  border:none;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow: 0 10px 22px rgba(124,58,237,.25);
+}
+
+/* =========================
+   FEED
+========================= */
+.feed{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding-bottom:8px;
+}
+
+.emptyFeed{
+  background:#ffffff;
+  border-radius:18px;
+  padding:22px;
+  border:1px dashed #e2e8f0;
+  text-align:center;
+}
+
+.emptyTitle{
+  font-size:18px;
+  font-weight:900;
+  color:#0f172a;
+}
+
+.emptySub{
+  margin-top:6px;
+  color:#64748b;
+  font-weight:700;
+}
+
+/* =========================
+   POST CARD
+========================= */
+.postCard{
+  background:#fff;
+  border-radius:18px;
+  box-shadow: 0 12px 34px rgba(0,0,0,.08);
+  overflow:hidden;
+  border:1px solid #eef2f7;
+}
+
+.postTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 14px 10px;
+}
+
+.author{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.avatar{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  color:#fff;
+  background: linear-gradient(135deg,#111827,#4f46e5);
+}
+
+.authorName{
+  font-weight:900;
+  color:#0f172a;
+}
+
+.authorMeta{
+  display:flex;
+  gap:8px;
+  color:#64748b;
+  font-size:12px;
+  font-weight:800;
+}
+
+.dot{ opacity:.6; }
+
+.postMenu{
+  display:flex;
+  gap:8px;
+}
+
+.menuBtn{
+  border:1px solid #e2e8f0;
+  background:#f8fafc;
+  padding:8px 10px;
+  border-radius:12px;
+  font-weight:900;
+  cursor:pointer;
+  color:#0f172a;
+}
+
+.menuBtn.danger{
+  border-color:#fecaca;
+  background:#fff1f2;
+  color:#be123c;
+}
+
+.editedTag{
+  color:#94a3b8;
+  font-weight:800;
+}
+
+/* =========================
+   MEDIA
+========================= */
+.mediaBox{
+  width:100%;
+  background:#0b1220;
+}
+
+.photo{
+  width:100%;
+  display:block;
+  object-fit:cover;
+  max-height:420px;
+}
+
+.pdfBox{
+  display:flex;
+  gap:12px;
+  padding:16px;
+  align-items:center;
+  background:#0b1220;
+}
+
+.pdfIcon{
+  width:56px;
+  height:56px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  color:#0b1220;
+  background: linear-gradient(135deg,#fff,#dbeafe);
+}
+
+.pdfInfo{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.pdfName{
+  color:#fff;
+  font-weight:900;
+}
+
+.pdfOpen{
+  color:#c7d2fe;
+  font-weight:900;
+  text-decoration:none;
+}
+
+.textBox{
+  padding:16px;
+  background: linear-gradient(135deg,#0b1220,#111827);
+}
+
+.textContent{
+  color:#fff;
+  font-weight:800;
+  line-height:1.5;
+  white-space:pre-wrap;
+}
+
+/* =========================
+   CAPTION / EDIT
+========================= */
+.caption{
+  padding:12px 14px 0;
+  color:#0f172a;
+  font-weight:800;
+}
+
+.captionEditWrap{
+  padding:12px 14px 0;
+}
+
+.captionEdit{
+  width:100%;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:10px 12px;
+  outline:none;
+  font-weight:800;
+}
+
+.textEditArea{
+  width:100%;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  border-radius:12px;
+  padding:12px;
+  outline:none;
+  resize:vertical;
+  font-weight:800;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+.actionsRow{
+  display:flex;
+  gap:10px;
+  padding:12px 14px;
+  flex-wrap: wrap;
+}
+
+.actBtn{
+  border:1px solid #e2e8f0;
+  background:#f8fafc;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:900;
+  cursor:pointer;
+  color:#0f172a;
+}
+
+.actBtn.liked{
+  border-color:#fecaca;
+  background:#fff1f2;
+  color:#be123c;
+}
+
+.actBtn.saved{
+  border-color:#c7d2fe;
+  background:#eef2ff;
+  color:#3730a3;
+}
+
+/* =========================
+   COMMENTS
+========================= */
+.commentArea{
+  padding:0 14px 14px;
+}
+
+.commentInputRow{
+  display:flex;
+  gap:10px;
+}
+
+.commentInput{
+  flex:1;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:10px 12px;
+  outline:none;
+}
+
+.commentBtn{
+  border:none;
+  background:#0b1220;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.commentsList{
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.commentItemRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-top:1px solid #f1f5f9;
+  padding-top:10px;
+}
+
+.commentText{
+  color:#334155;
+  font-weight:800;
+  flex:1;
+}
+
+.commentActions{
+  display:flex;
+  gap:8px;
+}
+
+.miniBtn{
+  border:1px solid #e2e8f0;
+  background:#fff;
+  padding:6px 10px;
+  border-radius:10px;
+  font-weight:900;
+  cursor:pointer;
+  color:#0f172a;
+}
+
+.miniBtn.danger{
+  border-color:#fecaca;
+  background:#fff1f2;
+  color:#be123c;
+}
+
+.commentEditInput{
+  flex:1;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  padding:8px 10px;
+  outline:none;
+}
+
+.editedMini{
+  color:#94a3b8;
+  font-weight:800;
+  margin-left:6px;
+  font-size:12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 700px){
+  .uploadHero .badge{ min-width: 92px; }
+  .photo{ max-height: 320px; }
+}

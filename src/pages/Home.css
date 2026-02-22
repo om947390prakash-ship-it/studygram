@@ -1,0 +1,202 @@
+/* Page */
+.hmWrap{
+  min-height: 100vh;
+  padding: 18px;
+  background:
+    radial-gradient(900px 480px at 20% 0%, rgba(124, 58, 237, 0.12), transparent 60%),
+    radial-gradient(900px 480px at 80% 0%, rgba(14, 165, 233, 0.10), transparent 65%),
+    #f6f7fb;
+  color: #0f172a;
+}
+
+/* Outer Shell */
+.hmShell{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78));
+  border: 1px solid rgba(15,23,42,0.08);
+  box-shadow: 0 26px 60px rgba(15,23,42,0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* Header */
+.hmTop{
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 6px 6px 14px;
+}
+
+.hmTitle{
+  margin: 0 0 8px;
+  font-size: 36px;
+  letter-spacing: -0.5px;
+}
+
+.hmTitle span{
+  background: linear-gradient(90deg, rgba(124,58,237,1), rgba(14,165,233,1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hmSub{
+  margin: 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Chips */
+.hmChips{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chip{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.chip:hover{
+  transform: translateY(-1px);
+  background: #f1f5f9;
+}
+
+.chip.active{
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.35);
+  color: #5b21b6;
+}
+
+/* Stack */
+.hmStack{
+  margin-top: 10px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Premium Card */
+.pCard{
+  padding: 18px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(15,23,42,0.08);
+  box-shadow: 0 14px 40px rgba(15,23,42,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.pCard::before{
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(600px 140px at 18% 0%, rgba(124,58,237,0.10), transparent 60%);
+  pointer-events: none;
+}
+
+/* Card Top */
+.pCardTop{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.pCard h2{
+  margin: 0 0 8px;
+  font-size: 20px;
+  letter-spacing: -0.2px;
+}
+
+.pCard p{
+  margin: 0;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+/* Right Icon */
+.pIcon{
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: #f1f5f9;
+  border: 1px solid rgba(15,23,42,0.08);
+}
+
+/* Actions */
+.pActions{
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons */
+.btnPrimary{
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(124,58,237,0.18);
+  background: linear-gradient(180deg, rgba(124,58,237,1), rgba(99,102,241,1));
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.btnPrimary:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.btnGhost{
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.btnGhost:hover{
+  transform: translateY(-1px);
+  background: #f1f5f9;
+}
+
+/* Hint */
+.hmHint{
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px dashed rgba(15,23,42,0.14);
+  color: #475569;
+}
+
+/* Responsive */
+@media (max-width: 860px){
+  .hmTop{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hmTitle{
+    font-size: 32px;
+  }
+}
