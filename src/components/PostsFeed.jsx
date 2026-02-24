@@ -43,11 +43,17 @@ export default function PostsFeed({
   showActions = true,
   allowEditDelete = false,
 
-  // ✅ NEW: persistence support
+  // ✅ persistence support
   persistKey,
 
-  // ✅ NEW: when user clicks Save button for Drive
+  // ✅ when user clicks Save button for Drive (opens modal)
   onSaveToDrive,
+
+  // ✅ NEW: share publicly to Firestore /posts
+  onSharePublic,
+
+  // ✅ NEW: disable action buttons while busy
+  disabledActions = false,
 }) {
   const sortedPosts = useMemo(
     () => [...(posts || [])].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0)),
@@ -194,7 +200,8 @@ export default function PostsFeed({
               onOpenProfile={() => navigateToProfile?.(p.author?.handle || "@user")}
               onLike={() => toggleLike(p.id)}
               onSave={() => toggleSave(p.id)}
-              onSaveToDrive={() => onSaveToDrive?.(p)} // ✅ Recap page uses this
+              onSaveToDrive={() => onSaveToDrive?.(p)}
+              onSharePublic={() => onSharePublic?.(p)}   // ✅ NEW
               onComment={(txt) => addComment(p.id, txt)}
               onDelete={() => removePost(p.id)}
               onEditPost={(patch) => updatePost(p.id, patch)}
@@ -202,6 +209,7 @@ export default function PostsFeed({
               onDeleteComment={(commentId) => deleteComment(p.id, commentId)}
               showActions={showActions}
               allowEditDelete={allowEditDelete}
+              disabledActions={disabledActions}
             />
           ))
         )}
@@ -358,6 +366,7 @@ function PostCard({
   onLike,
   onSave,
   onSaveToDrive,
+  onSharePublic,        // ✅ NEW
   onComment,
   onDelete,
   onEditPost,
@@ -365,6 +374,7 @@ function PostCard({
   onDeleteComment,
   showActions,
   allowEditDelete,
+  disabledActions = false,
 }) {
   const [cmt, setCmt] = useState("");
   const [editingPost, setEditingPost] = useState(false);
@@ -400,21 +410,22 @@ function PostCard({
           <div className="postMenu">
             {!editingPost ? (
               <>
-                <button className="menuBtn" type="button" onClick={() => setEditingPost(true)}>
+                <button className="menuBtn" type="button" onClick={() => setEditingPost(true)} disabled={disabledActions}>
                   Edit
                 </button>
-                <button className="menuBtn danger" type="button" onClick={onDelete}>
+                <button className="menuBtn danger" type="button" onClick={onDelete} disabled={disabledActions}>
                   Delete
                 </button>
               </>
             ) : (
               <>
-                <button className="menuBtn" type="button" onClick={savePostEdit}>
+                <button className="menuBtn" type="button" onClick={savePostEdit} disabled={disabledActions}>
                   Save
                 </button>
                 <button
                   className="menuBtn"
                   type="button"
+                  disabled={disabledActions}
                   onClick={() => {
                     setEditingPost(false);
                     setEditCaption(post.caption || "");
@@ -469,21 +480,28 @@ function PostCard({
 
       {showActions && (
         <div className="actionsRow">
-          <button className={post.liked ? "actBtn liked" : "actBtn"} type="button" onClick={onLike}>
+          <button className={post.liked ? "actBtn liked" : "actBtn"} type="button" onClick={onLike} disabled={disabledActions}>
             ♥ {post.likes || 0}
           </button>
 
-          <button className="actBtn" type="button" onClick={() => sharePost(post)}>
+          <button className="actBtn" type="button" onClick={() => sharePost(post)} disabled={disabledActions}>
             ↗ Share
           </button>
 
+          {/* ✅ NEW: Share to Public Feed */}
+          {onSharePublic ? (
+            <button className="actBtn" type="button" onClick={onSharePublic} disabled={disabledActions}>
+              📣 Public
+            </button>
+          ) : null}
+
           {/* ✅ Recap Drive Save (opens modal) */}
           {onSaveToDrive ? (
-            <button className="actBtn" type="button" onClick={onSaveToDrive}>
+            <button className="actBtn" type="button" onClick={onSaveToDrive} disabled={disabledActions}>
               ⤓ Save
             </button>
           ) : (
-            <button className={post.saved ? "actBtn saved" : "actBtn"} type="button" onClick={onSave}>
+            <button className={post.saved ? "actBtn saved" : "actBtn"} type="button" onClick={onSave} disabled={disabledActions}>
               ⤓ Save
             </button>
           )}
@@ -492,10 +510,17 @@ function PostCard({
 
       <div className="commentArea">
         <div className="commentInputRow">
-          <input className="commentInput" value={cmt} onChange={(e) => setCmt(e.target.value)} placeholder="Add a comment..." />
+          <input
+            className="commentInput"
+            value={cmt}
+            onChange={(e) => setCmt(e.target.value)}
+            placeholder="Add a comment..."
+            disabled={disabledActions}
+          />
           <button
             className="commentBtn"
             type="button"
+            disabled={disabledActions}
             onClick={() => {
               onComment(cmt);
               setCmt("");
@@ -511,10 +536,16 @@ function PostCard({
               <div key={x.id} className="commentItemRow">
                 {editingCommentId === x.id ? (
                   <>
-                    <input className="commentEditInput" value={editCommentText} onChange={(e) => setEditCommentText(e.target.value)} />
+                    <input
+                      className="commentEditInput"
+                      value={editCommentText}
+                      onChange={(e) => setEditCommentText(e.target.value)}
+                      disabled={disabledActions}
+                    />
                     <button
                       className="miniBtn"
                       type="button"
+                      disabled={disabledActions}
                       onClick={() => {
                         onEditComment(x.id, editCommentText);
                         setEditingCommentId(null);
@@ -526,6 +557,7 @@ function PostCard({
                     <button
                       className="miniBtn"
                       type="button"
+                      disabled={disabledActions}
                       onClick={() => {
                         setEditingCommentId(null);
                         setEditCommentText("");
@@ -537,12 +569,14 @@ function PostCard({
                 ) : (
                   <>
                     <div className="commentText">
-                      <span className="cDot">•</span> {x.text} {x.editedAt ? <span className="editedMini">(edited)</span> : null}
+                      <span className="cDot">•</span> {x.text}{" "}
+                      {x.editedAt ? <span className="editedMini">(edited)</span> : null}
                     </div>
                     <div className="commentActions">
                       <button
                         className="miniBtn"
                         type="button"
+                        disabled={disabledActions}
                         onClick={() => {
                           setEditingCommentId(x.id);
                           setEditCommentText(x.text);
@@ -550,7 +584,12 @@ function PostCard({
                       >
                         Edit
                       </button>
-                      <button className="miniBtn danger" type="button" onClick={() => onDeleteComment(x.id)}>
+                      <button
+                        className="miniBtn danger"
+                        type="button"
+                        disabled={disabledActions}
+                        onClick={() => onDeleteComment(x.id)}
+                      >
                         Delete
                       </button>
                     </div>

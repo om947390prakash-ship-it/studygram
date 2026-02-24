@@ -1,9 +1,23 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
-// ✅ Named export: AuthContext
-export const AuthContext = createContext(null);
+const Ctx = createContext(null);
 
-// ✅ Hook
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    return onAuthStateChanged(auth, (u) => {
+      setUser(u ?? null);
+      setLoading(false);
+    });
+  }, []);
+
+  return <Ctx.Provider value={{ user, loading }}>{children}</Ctx.Provider>;
+}
+
 export function useAuth() {
-  return useContext(AuthContext);
+  return useContext(Ctx);
 }

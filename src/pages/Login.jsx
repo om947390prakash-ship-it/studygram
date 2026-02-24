@@ -1,32 +1,48 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 import { ensureUserDoc } from "../services/userService";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
-import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export default function Login() {
   const nav = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [err, setErr] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function onSubmit(e) {
     e.preventDefault();
     setErr("");
-    try {
-      const cred = await signInWithEmailAndPassword(auth, email, pass);
 
-      // ensure doc exists even if user signed up elsewhere
+    if (!email.trim() || !pass) {
+      setErr("Email and password required");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const cred = await signInWithEmailAndPassword(auth, email.trim(), pass);
+
+      // Create user doc if missing (safe)
+      const cleanHandle = (cred.user.email || "user")
+        .split("@")[0]
+        .toLowerCase()
+        .replace(/[^a-z0-9_]/g, "");
+
       await ensureUserDoc(cred.user.uid, {
         name: cred.user.displayName || "User",
-        handle: `@user_${cred.user.uid.slice(0, 5)}`,
+        handle: `@${cleanHandle || "user"}`,
       });
 
+      // go to your app page
       nav("/saathi");
     } catch (e2) {
-      setErr(e2.message);
+      setErr(e2?.message || "Login failed");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -36,36 +52,35 @@ export default function Login() {
         <h1>Login</h1>
         <p className="muted">Login to access your Saathi</p>
 
-        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-        <input value={pass} onChange={(e) => setPass(e.target.value)} placeholder="Password" type="password" />
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          autoComplete="email"
+        />
+        <input
+          value={pass}
+          onChange={(e) => setPass(e.target.value)}
+          placeholder="Password"
+          type="password"
+          autoComplete="current-password"
+        />
 
         {err ? <div className="authErr">{err}</div> : null}
 
-        <button className="btnPrimary" type="submit">Login</button>
-        <button className="btnGhost" type="button" onClick={() => nav("/signup")}>Create new account</button>
+        <button className="btnPrimary" type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </button>
+
+        <button
+          className="btnGhost"
+          type="button"
+          onClick={() => nav("/signup")}
+          disabled={loading}
+        >
+          Create new account
+        </button>
       </form>
     </div>
   );
-}
-async function handleLogin() {
-  const cred = await signInWithEmailAndPassword(auth, email, password);
-
-  const ref = doc(db, "users", cred.user.uid);
-  const snap = await getDoc(ref);
-
-  if (!snap.exists()) {
-    const cleanHandle =
-      (cred.user.email || "user").split("@")[0].toLowerCase();
-
-    await setDoc(ref, {
-      name: cred.user.displayName || "User",
-      handle: cleanHandle,
-      score: 0,
-      focusMinutes: 0,
-      completionPct: 0,
-      createdAt: Date.now(),
-    });
-  }
-
-  nav("/");
 }
